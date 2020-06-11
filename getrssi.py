@@ -3,7 +3,8 @@ import serial
 import time
 
 ut_port='/dev/ttyUSB0' #by default, in first after boot will be USB0
-ut=serial.Serial(ut_port, 115200, timeout=0)
+ut=serial.Serial(ut_port, 115200, timeout=2)
+print()
 print(ut.name)
 
 #check OK
@@ -24,6 +25,7 @@ else:
 ut.reset_output_buffer()
 cmd_imei='AT+CGSN\r'
 ut.write(cmd_imei.encode())
+print()
 print('Getting device information ... ')
 
 ut_cgsn=ut.readline() #blank
@@ -36,6 +38,7 @@ print('IMEI : '+imei)
 ut.reset_output_buffer()
 cmd_csq='AT+CSQ\r'
 ut.write(cmd_csq.encode())
+print()
 print('Getting RSSI ... ')
 
 ut_csq=ut.readline() #blank
@@ -43,9 +46,10 @@ ut_csq=ut.readline() #OK
 ut_csq=ut.readline() #blank
 ut_csq=ut.readline() #CSQ
 ut_csq=ut_csq.decode('utf-8')
-# RSSI = index 6-7
-# BER = index 10-11
-rssi=ut_csq[6:8]
-ber=ut_csq[9:11]
+
+colon=ut_csq.find(',')
+rssi=ut_csq[colon-2:colon]
+ber=ut_csq[colon+1:colon+3]
 print('RSSI: '+rssi)
 print('Bit-Error-Rate: '+ber)
+print()
