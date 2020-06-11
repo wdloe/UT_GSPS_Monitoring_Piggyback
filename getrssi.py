@@ -39,6 +39,7 @@ while True:
     #getting RSSI data
     ut.reset_output_buffer()
     cmd_csq='AT+CSQ\r'
+    epoch=int(time.time())
     ut.write(cmd_csq.encode())
     print()
     print('Getting RSSI ... ')
@@ -52,11 +53,12 @@ while True:
     colon=ut_csq.find(',')
     rssi=ut_csq[colon-2:colon]
     ber=ut_csq[colon+1:colon+3]
-    print('RSSI: '+rssi)
-    print('Bit-Error-Rate: '+ber)
-    rssi=float(rssi)
-    ber=float(ber)
-    csq=rssi-95 #meraki formula dbm https://documentation.meraki.com/MR/Monitoring_and_Reporting/Location_Analytics
+    rssi=int(rssi)
+    ber=int(ber)
+    csq=float(rssi-95) #meraki formula dbm https://documentation.meraki.com/MR/Monitoring_and_Reporting/Location_Analytics
+    print("Timestamp: " + str(epoch))
     print("Signal strength: " + str(csq) + " dBm")
+    print("RSSI: " + str(rssi))
+    print("BER: " + str(ber))
     print()
     time.sleep(5)
