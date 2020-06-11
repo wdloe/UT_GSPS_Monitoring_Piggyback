@@ -34,22 +34,23 @@ ut_cgsn=ut_cgsn.decode('utf-8')
 imei=ut_cgsn[0:15] #unique id upload to server
 print('IMEI : '+imei)
 
-#getting RSSI data
-ut.reset_output_buffer()
-cmd_csq='AT+CSQ\r'
-ut.write(cmd_csq.encode())
-print()
-print('Getting RSSI ... ')
+while True:
+    #getting RSSI data
+    ut.reset_output_buffer()
+    cmd_csq='AT+CSQ\r'
+    ut.write(cmd_csq.encode())
+    print()
+    print('Getting RSSI ... ')
 
-ut_csq=ut.readline() #blank
-ut_csq=ut.readline() #OK
-ut_csq=ut.readline() #blank
-ut_csq=ut.readline() #CSQ
-ut_csq=ut_csq.decode('utf-8')
+    ut_csq=ut.readline() #blank
+    ut_csq=ut.readline() #OK
+    ut_csq=ut.readline() #blank
+    ut_csq=ut.readline() #CSQ
+    ut_csq=ut_csq.decode('utf-8')
 
-colon=ut_csq.find(',')
-rssi=ut_csq[colon-2:colon]
-ber=ut_csq[colon+1:colon+3]
-print('RSSI: '+rssi)
-print('Bit-Error-Rate: '+ber)
-print()
+    colon=ut_csq.find(',')
+    rssi=ut_csq[colon-2:colon]
+    ber=ut_csq[colon+1:colon+3]
+    print('RSSI: '+rssi)
+    print('Bit-Error-Rate: '+ber)
+    print()
