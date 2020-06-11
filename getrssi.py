@@ -32,7 +32,8 @@ ut_cgsn=ut.readline() #blank
 ut_cgsn=ut.readline() #IMEI
 ut_cgsn=ut_cgsn.decode('utf-8')
 imei=ut_cgsn[0:15] #unique id upload to server
-print('IMEI : '+imei)
+imei=int(imei) #convert to integer as spec
+print("IMEI : " + str(imei))
 
 while True:
     #getting RSSI data
@@ -47,10 +48,15 @@ while True:
     ut_csq=ut.readline() #blank
     ut_csq=ut.readline() #CSQ
     ut_csq=ut_csq.decode('utf-8')
-
+    
     colon=ut_csq.find(',')
     rssi=ut_csq[colon-2:colon]
     ber=ut_csq[colon+1:colon+3]
     print('RSSI: '+rssi)
     print('Bit-Error-Rate: '+ber)
+    rssi=float(rssi)
+    ber=float(ber)
+    csq=rssi-95 #meraki formula dbm https://documentation.meraki.com/MR/Monitoring_and_Reporting/Location_Analytics
+    print("Signal strength: " + str(csq) + " dBm")
     print()
+    time.sleep(5)
