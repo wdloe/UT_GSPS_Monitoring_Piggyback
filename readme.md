@@ -14,4 +14,4 @@ This project is a experimental and developable. I will update every day.
 ### Preview
 ![NEWEST UPDATE](TerminalResult.jpg)
 
-(June 11, 2020)
+(Updated on June 11, 2020)
