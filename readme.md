@@ -12,6 +12,11 @@ This project is a experimental and developable. I will update every day.
 - IMEI (integer), signal strength (float), epoch/timestamp (integer)
 
 ### Preview
+#####(Updated 11-Jun-2020)
 ![NEWEST UPDATE](TerminalResult.jpg)
 
-(Updated on June 11, 2020)
+
+#####(Updated 12-Jun-2020)
+HTTP Post using Requests Library has been tried using Pastebin API.
+Here is the link : https://pastebin.com/dELbha21
+Disadvantage -> generate new link every-loop
