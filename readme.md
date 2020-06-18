@@ -20,3 +20,8 @@ This project is a experimental and developable. I will update every day.
 
 HTTP Post using Requests Library has been tried using Pastebin API. Disadvantage of using this API is pastebin always generate a new single link every loop.
 Here is one of the link : https://pastebin.com/dELbha21
+
+***(Updated 18-Jun-2020)***
+
+- Enabling Auto-port-detection on getRSSIdata
+- A new mechanism of event logging. (CPU overload, CPU overheat, Process isn't running, etc)
