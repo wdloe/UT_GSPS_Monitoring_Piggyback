@@ -26,4 +26,5 @@ Here is one of the link : https://pastebin.com/dELbha21
 - Enabling Auto-port-detection on getRSSIdata
 - A new mechanism of event logging. (CPU overload, CPU overheat, Process isn't running, etc)
 - HTTP Post OK (Response Code 200)
+
 ![getEvent&getRSSI](getRSSI&getEvent.png)
