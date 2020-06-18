@@ -1,8 +1,17 @@
-#Step-by-step
+# GET RSSI DATA
+
 import serial
 import time
+import requests
 
-ut_port='/dev/ttyUSB0' #by default, in first after boot will be USB0
+# autoconnect
+import serial.tools.list_ports
+ports = list(serial.tools.list_ports.comports())
+for p in ports:
+    print(p)
+ut_port = p[0] #working perfectly on my Huawei Modem
+
+#ut_port='/dev/ttyUSB0' #by default, in first after boot will be USB0
 ut=serial.Serial(ut_port, 115200, timeout=2)
 print()
 print(ut.name)
@@ -60,5 +69,10 @@ while True:
     print("Signal strength: " + str(csq) + " dBm")
     print("RSSI: " + str(rssi))
     print("BER: " + str(ber))
-    print()
-    time.sleep(5)
+    
+    json={"csq":csq,"id":imei,"ts": epoch}
+    response = requests.post("https://vms.inmarsat.com/apiv2", json=json)
+    print(json)
+    print("Status code: ", response.status_code)
+    time.sleep(60)
+    
