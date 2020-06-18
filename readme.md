@@ -14,7 +14,7 @@ This project is a experimental and developable. I will update every day.
 ### Preview
 ***(Updated 11-Jun-2020)***
 
-![NEWEST UPDATE](TerminalResult.jpg)
+![NEWEST UPDATE](Images/TerminalResult.jpg)
 
 ***(Updated 12-Jun-2020)***
 
@@ -27,4 +27,4 @@ Here is one of the link : https://pastebin.com/dELbha21
 - Event capturing. (CPU overload, CPU overheat, Process isn't running, etc)
 - HTTP Post OK (Response Code 200)
 
-![getEvent&getRSSI](getRSSI&getEvent.png)
+![getEvent&getRSSI](Images/getRSSI&getEvent.png)
