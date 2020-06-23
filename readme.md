@@ -32,5 +32,6 @@ Here is one of the link : https://pastebin.com/dELbha21
 ***(Updated 23-Jun-2020)***
 - Reliable in port changes, and robust in port accuracy.
 - Using timer. In my prototype, i was using 5 seconds. RSSI data followed by event data.
+- Device connection checker. (Included error messages: 'Device Found' and 'Device Not Found')
 
 ![RobustProof](Images/TimerWorked.png)
