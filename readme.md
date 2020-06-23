@@ -28,3 +28,9 @@ Here is one of the link : https://pastebin.com/dELbha21
 - HTTP Post OK (Response Code 200)
 
 ![getEvent&getRSSI](Images/getRSSI&getEvent.png)
+
+***(Updated 23-Jun-2020)***
+- Reliable in port changes, and robust in port accuracy.
+- Using timer. In my prototype, i was using 5 seconds. RSSI data followed by event data.
+
+![RobustProof](Images/TimerWorked.png)
