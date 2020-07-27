@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 # GET EVENT DATA
 
 import os
@@ -45,7 +47,7 @@ while loop == True: #initate infinite loop every 60 seconds
 	if found_process == False:
 		found_process = False
 		response = requests.post("https://vms.inmarsat.com/apiv2", json={"event":"process not running","ts": epoch, "severity":0})
-		print("Status code: ", response.status_code)
+		print("Process Status code: ", response.status_code)
 		print('Process not found: starting it.')
 		Popen(['python', 'getrssi.py'])
 		
@@ -62,11 +64,11 @@ while loop == True: #initate infinite loop every 60 seconds
 	## deciding overheat or not
 	### from several literature and documents said that raspi should be working normally below 80 deg celsius.
 	overheat = False
-	if cpu_temp > 80: # if cpu temp more than 80 deg celsius
+	if cpu_temp > 70: # if cpu temp more than 80 deg celsius
 		print('CPU Overheating ...')
 		overheat = True
 		response = requests.post("https://vms.inmarsat.com/apiv2", json={"event":"processor overheat","ts": epoch, "severity":1})
-		print("Status code: ", response.status_code)
+		print("Heat Status code: ", response.status_code)
 	else:
 		#print('CPU is on Working temperature')
 		overheat = False
@@ -80,11 +82,25 @@ while loop == True: #initate infinite loop every 60 seconds
 		print('CPU Overload ... ')
 		overload = True
 		response = requests.post("https://vms.inmarsat.com/apiv2", json={"event":"processor overheat","ts": epoch, "severity":1})
-		print("Status code: ", response.status_code)
+		print("CPU Status code: ", response.status_code)
 	else:
 		#print('CPU is working normally')
 		overload = False
 
+	# detecting memory overload
+	mem_overload = False
+	memory_usage = psutil.virtual_memory().percent
+	print("Memory Usage: " + str(memory_usage) + "%")
+
+	if memory_usage > 80: # if cpu usage more than 80 percent
+		print('Caution. High usage on memory ')
+		mem_overload = True
+		response = requests.post("https://vms.inmarsat.com/apiv2", json={"event":"processor overheat","ts": epoch, "severity":1})
+		print("Memory Status code: ", response.status_code)
+	else:
+		#print('Memory is working normally')
+		overload = False	
+	
 	print()	
 	time.sleep(5)
 

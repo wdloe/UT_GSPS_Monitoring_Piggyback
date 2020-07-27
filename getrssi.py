@@ -45,34 +45,34 @@ imei=int(imei) #convert to integer as spec
 print("IMEI : " + str(imei))
 
 while True:
-    #getting RSSI data
-    ut.reset_output_buffer()
-    cmd_csq='AT+CSQ\r'
-    epoch=int(time.time())
-    ut.write(cmd_csq.encode())
-    print()
-    print('Getting RSSI ... ')
+	#getting RSSI data
+	ut.reset_output_buffer()
+	cmd_csq='AT+CSQ\r'
+	epoch=int(time.time())
+	ut.write(cmd_csq.encode())
+	print()
+	print('Getting RSSI ... ')
 
-    ut_csq=ut.readline() #blank
-    ut_csq=ut.readline() #OK
-    ut_csq=ut.readline() #blank
-    ut_csq=ut.readline() #CSQ
-    ut_csq=ut_csq.decode('utf-8')
-    
-    colon=ut_csq.find(',')
-    rssi=ut_csq[colon-2:colon]
-    ber=ut_csq[colon+1:colon+3]
-    rssi=int(rssi)
-    ber=int(ber)
-    csq=float(rssi-95) #meraki formula dbm https://documentation.meraki.com/MR/Monitoring_and_Reporting/Location_Analytics
-    print("Timestamp: " + str(epoch))
-    print("Signal strength: " + str(csq) + " dBm")
-    print("RSSI: " + str(rssi))
-    print("BER: " + str(ber))
-    
-    json={"csq":csq,"id":imei,"ts": epoch}
-    response = requests.post("https://vms.inmarsat.com/apiv2", json=json)
-    print(json)
-    print("Status code: ", response.status_code)
-    time.sleep(60)
+	ut_csq=ut.readline() #blank
+	ut_csq=ut.readline() #OK
+	ut_csq=ut.readline() #blank
+	ut_csq=ut.readline() #CSQ
+	ut_csq=ut_csq.decode('utf-8')
+		
+	colon=ut_csq.find(',')
+	rssi=ut_csq[colon-2:colon]
+	ber=ut_csq[colon+1:colon+3]
+	rssi=int(rssi)
+	ber=int(ber)
+	csq=float(rssi-95) #meraki formula dbm https://documentation.meraki.com/MR/Monitoring_and_Reporting/Location_Analytics
+	print("Timestamp: " + str(epoch))
+	print("Signal strength: " + str(csq) + " dBm")
+	print("RSSI: " + str(rssi))
+	print("BER: " + str(ber))
+		
+	json={"csq":csq,"id":imei,"ts": epoch}
+	response = requests.post("https://vms.inmarsat.com/apiv2", json=json)
+	print(json)
+	print("Status code: ", response.status_code)
+	time.sleep(5)
     

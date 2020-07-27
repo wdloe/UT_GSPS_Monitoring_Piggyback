@@ -11,12 +11,26 @@ import requests
 ## connection to GSPS terminal, CPU more than 80% etc)
 loop = True
 
-while loop == True: #initate infinite loop every 60 seconds
+#while loop == True: #initate infinite loop every 60 seconds
 	
 	epoch = int(time.time()) # time on current loop
 	
 	# detecting connection to User Terminal
-	## < program body >
+	usb_found = False
+	while usb_found == False:
+		import serial.tools.list_ports
+		ports = list(serial.tools.list_ports.comports())
+		if ports == []:
+			print()
+			print('Device not Found. Please check the connection.')
+			print('Waiting 5 seconds ...')
+			usb_found = False
+		else:
+			print()
+			print('Device found')
+			usb_found = True
+		
+		time.sleep(5)
 
 	# detecting process
 	from subprocess import Popen
@@ -71,5 +85,6 @@ while loop == True: #initate infinite loop every 60 seconds
 		#print('CPU is working normally')
 		overload = False
 
-	time.sleep(60)
+	print()	
+	#time.sleep(5)
 
