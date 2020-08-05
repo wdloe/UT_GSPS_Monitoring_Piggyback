@@ -7,6 +7,9 @@ import psutil
 import sys
 import time
 import requests
+import logging
+
+logging.basicConfig(filename='log-file.log',level=logging.DEBUG)
 
 #guidance
 ## Failure and event reporting of the device (process not running, processor overheat, lost
@@ -26,6 +29,7 @@ while loop == True: #initate infinite loop every 60 seconds
 			print()
 			print('Device not Found. Please check the connection.')
 			print('Waiting 5 seconds ...')
+			logging.debug('USB not found ' + str(epoch))
 			usb_found = False
 		else:
 			print()
@@ -48,6 +52,7 @@ while loop == True: #initate infinite loop every 60 seconds
 		found_process = False
 		response = requests.post("https://vms.inmarsat.com/apiv2", json={"event":"process not running","ts": epoch, "severity":0})
 		print("Process Status code: ", response.status_code)
+		logging.debug('Process not running ' + str(epoch))
 		print('Process not found: starting it.')
 		Popen(['python', 'getrssi.py'])
 		
@@ -69,6 +74,7 @@ while loop == True: #initate infinite loop every 60 seconds
 		overheat = True
 		response = requests.post("https://vms.inmarsat.com/apiv2", json={"event":"processor overheat","ts": epoch, "severity":1})
 		print("Heat Status code: ", response.status_code)
+		logging.debug('CPU overheat ' + str(epoch))
 	else:
 		#print('CPU is on Working temperature')
 		overheat = False
@@ -83,6 +89,7 @@ while loop == True: #initate infinite loop every 60 seconds
 		overload = True
 		response = requests.post("https://vms.inmarsat.com/apiv2", json={"event":"processor overheat","ts": epoch, "severity":1})
 		print("CPU Status code: ", response.status_code)
+		logging.debug('CPU usage overload ' + str(epoch))
 	else:
 		#print('CPU is working normally')
 		overload = False
@@ -97,6 +104,7 @@ while loop == True: #initate infinite loop every 60 seconds
 		mem_overload = True
 		response = requests.post("https://vms.inmarsat.com/apiv2", json={"event":"processor overheat","ts": epoch, "severity":1})
 		print("Memory Status code: ", response.status_code)
+		logging.debug('Memory usage overload ' + str(epoch))
 	else:
 		#print('Memory is working normally')
 		overload = False	

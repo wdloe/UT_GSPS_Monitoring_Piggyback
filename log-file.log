@@ -1,0 +1,16 @@
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): vms.inmarsat.com:443
+DEBUG:urllib3.connectionpool:https://vms.inmarsat.com:443 "POST /apiv2 HTTP/1.1" 200 0
+DEBUG:root:Process not running 1596602042
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): vms.inmarsat.com:443
+DEBUG:urllib3.connectionpool:https://vms.inmarsat.com:443 "POST /apiv2 HTTP/1.1" 200 0
+DEBUG:root:Process not running 1596602114
+DEBUG:root:USB not found 1596602126
+DEBUG:root:USB not found 1596602126
+DEBUG:root:USB not found 1596602126
+DEBUG:root:USB not found 1596602126
+DEBUG:root:USB not found 1596602126
+DEBUG:root:USB not found 1596602126
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): vms.inmarsat.com:443
+DEBUG:urllib3.connectionpool:https://vms.inmarsat.com:443 "POST /apiv2 HTTP/1.1" 200 0
+DEBUG:root:Process not running 1596602126
+DEBUG:root:USB not found 1596602177
