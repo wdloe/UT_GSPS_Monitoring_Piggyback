@@ -32,7 +32,7 @@ bash launcher.sh &> /dev/null &
 ## Admin Section
 1.	For ease, we could configure the device by connecting the SBC to external peripheral, such as: monitor, keyboard, and mouse. Make sure the SBC is connected through the internet.
 
-2.	Make sure that ZeroTier is installed on the SBC. After being installed, connect to our VPN. Contact your company to know the VPN ID. After knowing the VPN ID, input that ID to your ZeroTier interface to connect. Just wait for your company to approve your devices. The ZeroTier will be automatically run every boot. *(Note : Any method like NAT is no problem, while the admin and the remote SBC are in same network)*
+2.	Make sure that ZeroTier is installed on the SBC. After being installed, connect to our VPN. Contact your company to know the VPN ID. After knowing the VPN ID, input that ID to your ZeroTier interface to connect. Just wait for your company to approve your devices. The ZeroTier will be automatically run every boot. *(Note : Any method like NAT is no problem, since the admin and the remote SBC are in same network)*
 
 3.	Once your device is being approved, you are already joined on our VPN. Run this syntax to know your network identity.
 ifconfig
