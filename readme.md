@@ -21,7 +21,9 @@ This product solution contains the Software, Hardware, and its container.
 2.	After the device is powered up, we could start to remote using SSH or Remote Desktop by connecting any Personal Computer (such as PCs, Laptops, Smartphones) to device’s public address. (Ask your Device administrator to know the IP address. The IP address is Static IPv4, so keep in mind.)
 
 3.	Run the program by typing this following syntax on the Terminal/Serial Monitor.
-'bash launcher.sh &> /dev/null &'
+~~~
+bash launcher.sh &> /dev/null &
+~~~
 
 4.	The program should be run. If you want to close the process we could use two methods.
 - By press Ctrl + C.
@@ -42,7 +44,9 @@ After knowing the public address, we could start to remote the SBC. Please keep 
 -	getRSSIevent.py
 
 5. Run the program by typing this following syntax on the Terminal/Serial Monitor.
-'bash launcher.sh &> /dev/null &'
+~~~
+bash launcher.sh &> /dev/null &'
+~~~
 
 6. Once your program already ran, a new file should be appeared. That file is logging the PID number of the process. So, it is very helpful when we want to kill the process.
 
