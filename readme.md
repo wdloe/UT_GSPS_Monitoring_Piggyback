@@ -79,7 +79,7 @@ Remoting from Jakarta, Indonesia to the SBC in Batam, Indonesia. The result was 
 
 Thank you for visiting this repository. Suggestions and advices are very welcome.
 Feel free to contact me on 18117018@telecom.stei.itb.ac.id
-WDL &copy 2020
+WDL (c) 2020
 
 
 
