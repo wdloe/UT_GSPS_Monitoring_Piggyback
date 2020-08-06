@@ -78,7 +78,8 @@ You can create a revision on my design by exploring the 'Casing' folder in this 
 
 # Attachments
 Remoting from Jakarta, Indonesia to the SBC in Batam, Indonesia. The result was so smooth.
-[RemoteMantap](Images/remote_success.png)
+
+![RemoteMantap](Images/remote_success.png)
 
 
 Thank you for visiting this repository. Suggestions and advices are very welcome.
