@@ -7,6 +7,8 @@ This application could be used on any internet connection (such as Wi-Fi, Wired 
 
 This product solution contains the Software, Hardware, and its container.
 
+![Worked](Images/TimerWorked.png)
+
 # Requirements
 1. Python 3
 2. Linux Based OS
@@ -56,13 +58,28 @@ The program also could report the danger event. Such as: CPU overheat, CPU overl
 # Container Specification
 The container is fully designed by SolidWorks 2013. The dimensions of this container are 200x180x51 mm without lid, and 200x180x56 mm using lid. The container is using 3D print plastic material, and the lid is using acrylic with rubber around it. There is also passive humidity escape hole.
 
+![ContainerA](Images/case1.JPG)
+![ContainerB](Images/case2.JPG)
+![ContainerC](Images/case3.JPG)
+
 To stick SBC to the container, use small screw and the using of rubber washer is recommended. IsatPhone2 is no need to use another screw since it has the following mounting at the bottom.
 
 The container has two ports in the right side, there are: BNC connector for antenna and ethernet port for wired internet and PoE. The BNC connector is directly connected to L-band cable, which is ended up by connect it to the bottom of IsatPhone2. 
 
+You can create a revision on my design by exploring the 'Casing' folder in this repository.
+
 # Wiring Diagram
+![Wiring Diagram](Images/wire_diagram.png)
 
 
+# Attachments
+Remoting from Jakarta, Indonesia to the SBC in Batam, Indonesia. The result was so smooth.
+[RemoteMantap](Images/remote_success.png)
+
+
+Thank you for visiting this repository. Suggestions and advices are very welcome.
+Feel free to contact me on 18117018@telecom.stei.itb.ac.id
+WDL &copy 2020
 
 
 
