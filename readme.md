@@ -47,7 +47,7 @@ After knowing the public address, we could start to remote the SBC. Please keep 
 # How does the program work?
 The program is working by using serial library. The serial library will make a communication to the GSPS UT. Since the GSPS UT has same base with GSM, we could use AT commands to it. Basically, the main program is just giving AT commands input in every period of time. The RSSI data is being collected by giving AT+CSQ command.
 
-AT+CSQ command is giving this output: <RSSI>,<BER>. Since we are just going to obtain the RSSI, the program should slice it. For the device unique id, the program obtained IMEI data by giving AT+CGSN command.
+AT+CSQ command is giving this output: RSSI,BER. Since we are just going to obtain the RSSI, the program should slice it. For the device unique id, the program obtained IMEI data by giving AT+CGSN command.
 
 Since the output of the serial is an array of character (string), the program should slice its output and translate from string to its adequate data type. By default, csq is float, id is integer, and ts is integer.
  
